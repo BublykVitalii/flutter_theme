@@ -88,7 +88,7 @@ class _UiScreen extends State<UiScreen> {
                   ),
                   const SizedBox(height: 40),
                   FloatingActionButton(
-                    splashColor: AppColors.white,
+                    splashColor: Colors.white,
                     onPressed: _checkValidate,
                     backgroundColor: AppColors.green,
                     child: const Icon(
@@ -130,7 +130,7 @@ class _DrawerMenu extends StatelessWidget {
             child: Text(
               'Drawer Header',
               style: TextStyle(
-                color: AppColors.white,
+                color: Colors.white,
                 fontSize: 24,
               ),
             ),
@@ -227,69 +227,68 @@ class TextHeadline extends StatelessWidget {
       children: [
         Text(
           'headline1',
-          style: textTheme.headline1!.copyWith(color: AppColors.white),
+          style: textTheme.headline1!.copyWith(color: Colors.white),
         ),
         const Line(),
         Text(
           'headline2',
-          style: textTheme.headline2!.copyWith(color: AppColors.white),
+          style: textTheme.headline2!.copyWith(color: Colors.white),
         ),
         const Line(),
         Text(
           'headline3',
-          style: textTheme.headline3!.copyWith(color: AppColors.white),
+          style: textTheme.headline3!.copyWith(color: Colors.white),
         ),
         const Line(),
         Text(
           'headline4',
-          style: textTheme.headline4!.copyWith(color: AppColors.white),
+          style: textTheme.headline4!.copyWith(color: Colors.white),
         ),
         const Line(),
         Text(
           'headline5',
-          style: textTheme.headline5!.copyWith(color: AppColors.white),
+          style: textTheme.headline5!.copyWith(color: Colors.white),
         ),
         const Line(),
         Text(
           'headline6',
-          style: textTheme.headline6!.copyWith(color: AppColors.white),
+          style: textTheme.headline6!.copyWith(color: Colors.white),
         ),
         const Line(),
         Text(
           'subtitle1',
-          style: textTheme.subtitle1!.copyWith(color: AppColors.white),
+          style: textTheme.subtitle1!.copyWith(color: Colors.white),
         ),
         const Line(),
         Text(
           'subtitle2',
-          style: textTheme.subtitle2!.copyWith(color: AppColors.white),
+          style: textTheme.subtitle2!.copyWith(color: Colors.white),
         ),
         const Line(),
         Text(
           'bodyText1',
-          style: textTheme.bodyText1!.copyWith(color: AppColors.white),
+          style: textTheme.bodyText1!.copyWith(color: Colors.white),
         ),
         const Line(),
         Text(
           'bodyText2',
-          style: textTheme.bodyText2!.copyWith(color: AppColors.white),
+          style: textTheme.bodyText2!.copyWith(color: Colors.white),
         ),
         const Line(),
         Text(
           'button',
-          style: textTheme.button!.copyWith(color: AppColors.white),
+          style: textTheme.button!.copyWith(color: Colors.white),
         ),
         const Line(),
         Text(
           'caption',
-          style:
-              context.theme.textTheme.caption!.copyWith(color: AppColors.white),
+          style: context.theme.textTheme.caption!.copyWith(color: Colors.white),
         ),
         const Line(),
         Text(
           'overline',
-          style: context.theme.textTheme.overline!
-              .copyWith(color: AppColors.white),
+          style:
+              context.theme.textTheme.overline!.copyWith(color: Colors.white),
         ),
       ],
     );
@@ -320,7 +319,7 @@ class _ButtonsState extends State<Buttons> {
           style: const TextStyle(color: AppColors.green),
           underline: Container(
             height: 2,
-            color: AppColors.white,
+            color: Colors.white,
           ),
           onChanged: (String? newValue) {
             setState(() {
@@ -343,24 +342,24 @@ class _ButtonsState extends State<Buttons> {
           children: [
             ElevatedButton(
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(AppColors.white),
+                backgroundColor: MaterialStateProperty.all(Colors.white),
                 overlayColor: MaterialStateProperty.all(AppColors.green),
               ),
               onPressed: () {},
               child: const Text(
                 'Enabled',
-                style: TextStyle(color: AppColors.black),
+                style: TextStyle(color: Colors.black),
               ),
             ),
             const SizedBox(width: 10),
             ElevatedButton(
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(AppColors.grey),
+                backgroundColor: MaterialStateProperty.all(Colors.grey),
               ),
               onPressed: null,
               child: const Text(
                 'Disable',
-                style: TextStyle(color: AppColors.white),
+                style: TextStyle(color: Colors.white),
               ),
             ),
           ],
@@ -371,7 +370,7 @@ class _ButtonsState extends State<Buttons> {
             FloatingActionButton(
               splashColor: AppColors.green,
               onPressed: () {},
-              backgroundColor: AppColors.white,
+              backgroundColor: Colors.white,
               child: const Icon(
                 Icons.add,
                 color: AppColors.black,
@@ -380,10 +379,10 @@ class _ButtonsState extends State<Buttons> {
             const SizedBox(width: 10),
             const FloatingActionButton(
               onPressed: null,
-              backgroundColor: AppColors.grey,
+              backgroundColor: Colors.grey,
               child: Icon(
                 Icons.add,
-                color: AppColors.white,
+                color: Colors.white,
               ),
             ),
           ],
@@ -392,7 +391,7 @@ class _ButtonsState extends State<Buttons> {
         Row(
           children: [
             IconButton(
-              color: AppColors.white,
+              color: Colors.white,
               onPressed: () {},
               icon: const Icon(
                 Icons.favorite,
@@ -401,11 +400,11 @@ class _ButtonsState extends State<Buttons> {
             ),
             const SizedBox(width: 10),
             const IconButton(
-              disabledColor: AppColors.grey,
+              disabledColor: Colors.grey,
               onPressed: null,
               icon: Icon(
                 Icons.favorite,
-                color: AppColors.grey,
+                color: Colors.grey,
               ),
             ),
           ],
@@ -414,7 +413,7 @@ class _ButtonsState extends State<Buttons> {
           children: [
             OutlinedButton(
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(AppColors.white),
+                backgroundColor: MaterialStateProperty.all(Colors.white),
                 overlayColor: MaterialStateProperty.all(AppColors.green),
               ),
               onPressed: () {},
@@ -428,12 +427,12 @@ class _ButtonsState extends State<Buttons> {
             const SizedBox(width: 10),
             OutlinedButton(
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(AppColors.grey),
+                backgroundColor: MaterialStateProperty.all(Colors.grey),
               ),
               onPressed: null,
               child: const Text(
                 'Click Me',
-                style: TextStyle(color: AppColors.white),
+                style: TextStyle(color: Colors.white),
               ),
             ),
           ],
@@ -442,7 +441,7 @@ class _ButtonsState extends State<Buttons> {
           children: [
             TextButton(
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(AppColors.white),
+                backgroundColor: MaterialStateProperty.all(Colors.white),
                 overlayColor: MaterialStateProperty.all(AppColors.green),
               ),
               onPressed: () {},
@@ -454,12 +453,12 @@ class _ButtonsState extends State<Buttons> {
             const SizedBox(width: 10),
             TextButton(
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(AppColors.grey),
+                backgroundColor: MaterialStateProperty.all(Colors.grey),
               ),
               onPressed: null,
               child: const Text(
                 'Disable',
-                style: TextStyle(color: AppColors.white),
+                style: TextStyle(color: Colors.white),
               ),
             ),
           ],
@@ -483,8 +482,8 @@ class _SwitchersState extends State<Switchers> {
   @override
   Widget build(BuildContext context) {
     return Switch(
-      activeColor: AppColors.white,
-      activeTrackColor: AppColors.white,
+      activeColor: Colors.white,
+      activeTrackColor: Colors.white,
       inactiveThumbColor: AppColors.green,
       inactiveTrackColor: AppColors.green,
       value: isSwitched,
@@ -518,7 +517,7 @@ class _CheckboxsState extends State<Checkboxs> {
         MaterialState.focused,
       };
       if (states.any(interactiveStates.contains)) {
-        return AppColors.white;
+        return Colors.white;
       }
       return AppColors.green;
     }
@@ -537,7 +536,7 @@ class _CheckboxsState extends State<Checkboxs> {
           },
         ),
         ListTile(
-          textColor: AppColors.white,
+          textColor: Colors.white,
           title: const Text('Tom Hardy'),
           leading: Radio<SingingCharacter>(
             activeColor: AppColors.green,
@@ -553,7 +552,7 @@ class _CheckboxsState extends State<Checkboxs> {
           ),
         ),
         ListTile(
-          textColor: AppColors.white,
+          textColor: Colors.white,
           title: const Text('Thomas Jefferson'),
           leading: Radio<SingingCharacter>(
             activeColor: AppColors.green,
@@ -570,7 +569,7 @@ class _CheckboxsState extends State<Checkboxs> {
         ),
         Slider(
           activeColor: AppColors.green,
-          inactiveColor: AppColors.white,
+          inactiveColor: Colors.white,
           thumbColor: AppColors.green,
           value: _currentSliderValue,
           max: 100,
