@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_theme/infrastructure/theme/app_colors.dart';
-import 'package:flutter_theme/infrastructure/theme/theme_extensions.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_theme/infrastructure/theme/dark_theme.dart';
+import 'package:flutter_theme/infrastructure/theme/light_theme.dart';
+
 import 'package:flutter_theme/ui_screen.dart';
 
 class MyApp extends StatefulWidget {
@@ -9,21 +11,34 @@ class MyApp extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<MyApp> createState() => MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class MyAppState extends State<MyApp> {
+  ThemeMode _themeMode = ThemeMode.system;
+
+  void setThemeMode(ThemeMode themeMode) {
+    setState(() {
+      _themeMode = themeMode;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    final theme = ThemeData(
-      colorScheme: context.theme.colorScheme.copyWith(
-        primary: AppColors.black,
-      ),
+    Widget child = MaterialApp(
+      title: 'Flutter theme',
+      themeMode: _themeMode,
+      theme: getLightTheme(context),
+      darkTheme: getDarkTheme(context),
+      onGenerateRoute: onGenerateRoute,
     );
 
-    return MaterialApp(
-      onGenerateRoute: onGenerateRoute,
-      theme: theme,
+    return MultiProvider(
+      providers: [
+        Provider.value(value: this),
+        Provider.value(value: _themeMode),
+      ],
+      child: child,
     );
   }
 
