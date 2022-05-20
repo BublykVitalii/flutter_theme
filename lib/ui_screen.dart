@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_theme/application.dart';
 import 'package:flutter_theme/infrastructure/theme/theme_extensions.dart';
+import 'package:flutter_theme/utils/localization_extensions.dart';
 import 'package:provider/provider.dart';
 
 class UiScreen extends StatefulWidget {
@@ -22,7 +23,7 @@ class UiScreen extends StatefulWidget {
 }
 
 class _UiScreen extends State<UiScreen> {
-  String dropdownValue = 'One';
+  late var dropdownValue = context.localizations!.one;
   bool isChecked = false;
   bool isSwitched = false;
   double _currentSliderValue = 20;
@@ -32,16 +33,17 @@ class _UiScreen extends State<UiScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Text(context.localizations!.flutterTheme),
         actions: [
           PopupMenuButton<ThemeMode>(
             itemBuilder: (context) => [
-              const PopupMenuItem(
+              PopupMenuItem(
                 value: ThemeMode.light,
-                child: Text('Light mode'),
+                child: Text(context.localizations!.lightMode),
               ),
-              const PopupMenuItem(
+              PopupMenuItem(
                 value: ThemeMode.dark,
-                child: Text('Dark mode'),
+                child: Text(context.localizations!.darkMode),
               ),
             ],
             onSelected: (themeMode) {
@@ -50,7 +52,6 @@ class _UiScreen extends State<UiScreen> {
           ),
         ],
         centerTitle: true,
-        title: const Text('Flutter Theme'),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(8.0),
@@ -110,9 +111,9 @@ class _UiScreen extends State<UiScreen> {
           });
         },
         items: <String>[
-          'One',
-          'Two',
-          'Free',
+          context.localizations!.one,
+          context.localizations!.two,
+          context.localizations!.free,
         ].map<DropdownMenuItem<String>>((String value) {
           return DropdownMenuItem<String>(
             value: value,
@@ -120,18 +121,18 @@ class _UiScreen extends State<UiScreen> {
           );
         }).toList(),
       ),
-      const SizedBox(width: 10),
+      const SizedBox(width: 20),
       Row(
         children: [
           ElevatedButton(
             onPressed: () {},
-            child: const Text('Enabled'),
+            child: Text(context.localizations!.enabled),
           ),
           const SizedBox(width: 10),
-          const ElevatedButton(
+          ElevatedButton(
             onPressed: null,
             child: Text(
-              'Disable',
+              context.localizations!.disable,
             ),
           ),
         ],
@@ -141,32 +142,33 @@ class _UiScreen extends State<UiScreen> {
         children: [
           OutlinedButton(
             onPressed: _showDialog,
-            child: const Text(
-              'Click Me',
+            child: Text(
+              context.localizations!.clickMe,
             ),
           ),
           const SizedBox(width: 10),
-          const OutlinedButton(
+          OutlinedButton(
             onPressed: null,
             child: Text(
-              'Click Me',
+              context.localizations!.clickMe,
             ),
           ),
         ],
       ),
+      const SizedBox(height: 10),
       Row(
         children: [
           TextButton(
             onPressed: _showDatePicker,
-            child: const Text(
-              'Enable',
+            child: Text(
+              context.localizations!.enabled,
             ),
           ),
           const SizedBox(width: 10),
-          const TextButton(
+          TextButton(
             onPressed: null,
             child: Text(
-              'Disable',
+              context.localizations!.disable,
             ),
           ),
         ],
@@ -291,9 +293,9 @@ class _UiScreen extends State<UiScreen> {
 
   Widget _userNameField() {
     return TextFormField(
-      decoration: const InputDecoration(
-        labelText: 'user name',
-        border: OutlineInputBorder(),
+      decoration: InputDecoration(
+        labelText: context.localizations!.username,
+        border: const OutlineInputBorder(),
       ),
     );
   }
@@ -303,7 +305,7 @@ class _UiScreen extends State<UiScreen> {
     return TextFormField(
       obscureText: _hidePassword,
       decoration: InputDecoration(
-        labelText: 'password',
+        labelText: context.localizations!.password,
         border: const OutlineInputBorder(),
         suffixIcon: IconButton(
           onPressed: () {
@@ -319,11 +321,11 @@ class _UiScreen extends State<UiScreen> {
 
   Widget _errorField() {
     return TextFormField(
-      validator: (v) => 'somethings wrong',
+      validator: (v) => context.localizations!.somethingsWrong,
       autovalidateMode: AutovalidateMode.onUserInteraction,
-      decoration: const InputDecoration(
-        labelText: 'error',
-        border: OutlineInputBorder(),
+      decoration: InputDecoration(
+        labelText: context.localizations!.error,
+        border: const OutlineInputBorder(),
       ),
     );
   }
@@ -333,13 +335,13 @@ class _UiScreen extends State<UiScreen> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text('Dialog'),
+          title: Text(context.localizations!.dialog),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: const Text('Close'),
+              child: Text(context.localizations!.close),
             ),
           ],
         );

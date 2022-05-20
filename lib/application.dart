@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_theme/utils/localization_extensions.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_theme/infrastructure/theme/dark_theme.dart';
 import 'package:flutter_theme/infrastructure/theme/light_theme.dart';
+import 'package:flutter_gen/gen_l10n/localizations.dart';
 
 import 'package:flutter_theme/ui_screen.dart';
 
@@ -31,6 +33,9 @@ class MyAppState extends State<MyApp> {
       theme: getLightTheme(context),
       darkTheme: getDarkTheme(context),
       onGenerateRoute: onGenerateRoute,
+      supportedLocales: AppLocalizations.supportedLocales,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      onGenerateTitle: (context) => context.localizations!.flutterTheme,
     );
 
     return MultiProvider(

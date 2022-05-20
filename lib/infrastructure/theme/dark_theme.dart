@@ -5,7 +5,7 @@ import 'package:flutter_theme/infrastructure/theme/app_colors.dart';
 const _colorTheme = ColorScheme(
   brightness: Brightness.dark,
   primary: AppColors.green,
-  onPrimary: Colors.white,
+  onPrimary: AppColors.black,
   secondary: AppColors.green,
   onSecondary: AppColors.black,
   error: Colors.red,
@@ -34,10 +34,10 @@ Color _getSwitchTrackColor(Set<MaterialState> states) {
   if (states.contains(MaterialState.disabled)) {
     return AppColors.green;
   } else if (states.contains(MaterialState.selected)) {
-    return AppColors.greenDark;
+    return AppColors.green;
   }
 
-  return Colors.grey;
+  return Colors.white;
 }
 
 Color _getSwitchThumbColor(Set<MaterialState> states) {
@@ -95,6 +95,8 @@ ThemeData getDarkTheme(BuildContext context) {
       style: TextButton.styleFrom(
         primary: Colors.white,
         padding: textButtonScaledPadding,
+      ).copyWith(
+        side: MaterialStateProperty.resolveWith(_getOutlinedColor),
       ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
@@ -127,6 +129,27 @@ ThemeData getDarkTheme(BuildContext context) {
     ),
     radioTheme: RadioThemeData(
       fillColor: MaterialStateProperty.resolveWith(_getRadioFillColor),
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      labelStyle: const TextStyle(
+        color: Colors.white,
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderSide: const BorderSide(color: AppColors.green),
+        borderRadius: BorderRadius.circular(20.0),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderSide: const BorderSide(color: Colors.white),
+        borderRadius: BorderRadius.circular(20.0),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderSide: const BorderSide(color: Colors.white),
+        borderRadius: BorderRadius.circular(20.0),
+      ),
+      focusedErrorBorder: OutlineInputBorder(
+        borderSide: const BorderSide(color: Colors.red),
+        borderRadius: BorderRadius.circular(20.0),
+      ),
     ),
   );
 }

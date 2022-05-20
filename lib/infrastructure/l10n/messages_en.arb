@@ -1,0 +1,64 @@
+{
+  "flutterTheme": "Flutter theme",
+  "@flutterTheme": {
+    "type": "text"
+  },
+    "one": "One",
+  "@one": {
+    "type": "text"
+  },
+  "lightMode": "Light mode",
+  "@lightMode": {
+    "type": "text"
+  },
+  "darkMode": "Dark mode",
+  "@darkMode": {
+    "type": "text"
+  },
+  "two": "Two",
+  "@two": {
+    "type": "text"
+  },
+  "free": "Free",
+  "@free": {
+    "type": "text"
+  },
+  "enabled": "Enabled",
+  "@enabled": {
+    "type": "text"
+  },
+  "disable": "Disable",
+  "@disable": {
+    "type": "text"
+  },
+    "clickMe": "Click Me",
+  "@clickMe": {
+    "type": "text"
+  },
+  "username": "username",
+  "@username": {
+    "type": "text"
+  },
+  "password": "password",
+  "@password": {
+    "type": "text"
+  },
+  "somethingsWrong": "somethings wrong",
+  "@somethingsWrong": {
+    "type": "text"
+  },
+  "error": "error",
+  "@error": {
+    "type": "text"
+  },
+  "dialog": "Dialog",
+  "@dialog": {
+    "type": "text"
+  },
+  "close": "Close",
+  "@close": {
+    "type": "text"
+  }
+}
+
+

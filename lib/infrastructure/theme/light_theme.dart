@@ -8,7 +8,7 @@ const _colorTheme = ColorScheme(
   onPrimary: AppColors.green,
   secondary: AppColors.black,
   onSecondary: AppColors.green,
-  error: Colors.purple,
+  error: Colors.red,
   onError: Colors.red,
   background: Colors.white,
   onBackground: AppColors.black,
@@ -94,6 +94,8 @@ ThemeData getLightTheme(BuildContext context) {
       style: TextButton.styleFrom(
         primary: AppColors.black,
         padding: textButtonScaledPadding,
+      ).copyWith(
+        side: MaterialStateProperty.resolveWith(_getOutlinedColor),
       ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
@@ -126,6 +128,27 @@ ThemeData getLightTheme(BuildContext context) {
     ),
     radioTheme: RadioThemeData(
       fillColor: MaterialStateProperty.resolveWith(_getRadioFillColor),
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      labelStyle: const TextStyle(
+        color: AppColors.black,
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderSide: const BorderSide(color: AppColors.green),
+        borderRadius: BorderRadius.circular(20.0),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderSide: const BorderSide(color: AppColors.black),
+        borderRadius: BorderRadius.circular(20.0),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderSide: const BorderSide(color: AppColors.black),
+        borderRadius: BorderRadius.circular(20.0),
+      ),
+      focusedErrorBorder: OutlineInputBorder(
+        borderSide: const BorderSide(color: Colors.red),
+        borderRadius: BorderRadius.circular(20.0),
+      ),
     ),
   );
 }
