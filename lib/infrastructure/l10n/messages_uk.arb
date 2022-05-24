@@ -1,0 +1,62 @@
+{
+  "flutterTheme": "Flutter theme",
+  "@flutterTheme": {
+    "type": "text"
+  },
+    "one": "Один",
+  "@one": {
+    "type": "text"
+  },
+  "lightMode": "Світлий режим",
+  "@lightMode": {
+    "type": "text"
+  },
+  "darkMode": "Темний режим",
+  "@darkMode": {
+    "type": "text"
+  },
+  "two": "Два",
+  "@two": {
+    "type": "text"
+  },
+  "free": "Три",
+  "@free": {
+    "type": "text"
+  },
+  "enabled": "Увімкнено",
+  "@enabled": {
+    "type": "text"
+  },
+  "disable": "Вимкнути",
+  "@disable": {
+    "type": "text"
+  },
+    "clickMe": "Натисни на мене",
+  "@clickMe": {
+    "type": "text"
+  },
+  "username": "Ім'я користувача",
+  "@username": {
+    "type": "text"
+  },
+  "password": "пароль",
+  "@password": {
+    "type": "text"
+  },
+  "somethingsWrong": "щось не так",
+  "@somethingsWrong": {
+    "type": "text"
+  },
+  "error": "помилка",
+  "@error": {
+    "type": "text"
+  },
+  "dialog": "Діалог",
+  "@dialog": {
+    "type": "text"
+  },
+  "close": "Зачинити",
+  "@close": {
+    "type": "text"
+  }
+}
