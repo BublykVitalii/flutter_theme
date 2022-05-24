@@ -25,7 +25,7 @@ Color _getCheckboxCheckedColor(Set<MaterialState> states) {
 
 Color _getCheckboxFillColor(Set<MaterialState> states) {
   if (!states.contains(MaterialState.disabled)) {
-    return Colors.white;
+    return AppColors.green;
   }
   return Colors.grey;
 }
@@ -91,6 +91,7 @@ ThemeData getDarkTheme(BuildContext context) {
       decorationColor: AppColors.black,
     ),
   ).copyWith(
+    iconTheme: const IconThemeData(color: AppColors.green),
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
         primary: Colors.white,
@@ -117,7 +118,7 @@ ThemeData getDarkTheme(BuildContext context) {
     brightness: Brightness.dark,
     scaffoldBackgroundColor: AppColors.black,
     appBarTheme: const AppBarTheme(
-      backgroundColor: AppColors.black,
+      backgroundColor: Colors.black,
     ),
     checkboxTheme: CheckboxThemeData(
       fillColor: MaterialStateProperty.resolveWith((_getCheckboxFillColor)),

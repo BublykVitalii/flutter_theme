@@ -58,5 +58,14 @@
   "close": "Зачинити",
   "@close": {
     "type": "text"
+  },
+   "todoList": "Список Справ",
+  "@todoList": {
+    "type": "text"
+  },
+   "enterTask": "Введіть завдання",
+  "@enterTask": {
+    "type": "text"
   }
 }
+

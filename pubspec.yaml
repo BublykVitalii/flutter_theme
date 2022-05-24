@@ -18,6 +18,13 @@ dependencies:
   cupertino_icons: ^1.0.2
   provider: ^6.0.2
   intl_utils: ^2.6.1
+  equatable: ^2.0.3
+  firebase_auth:
+  dio: ^4.0.4
+  get_it: ^7.2.0
+  google_fonts:
+  firebase_core: ^1.17.0
+  cloud_firestore: ^3.1.16
 
 dev_dependencies:
   flutter_test:

@@ -58,6 +58,14 @@
   "close": "Close",
   "@close": {
     "type": "text"
+  },
+   "todoList": "Todo List",
+  "@todoList": {
+    "type": "text"
+  },
+   "enterTask": "Enter task",
+  "@enterTask": {
+    "type": "text"
   }
 }
 

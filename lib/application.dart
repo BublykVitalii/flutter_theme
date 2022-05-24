@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_theme/utils/localization_extensions.dart';
+import 'package:flutter_theme/screens/todos_screens/todos_screen.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_theme/infrastructure/theme/dark_theme.dart';
-import 'package:flutter_theme/infrastructure/theme/light_theme.dart';
+
 import 'package:flutter_gen/gen_l10n/localizations.dart';
 
-import 'package:flutter_theme/ui_screen.dart';
+import 'package:flutter_theme/utils/localization_extensions.dart';
+import 'package:flutter_theme/infrastructure/theme/dark_theme.dart';
+import 'package:flutter_theme/infrastructure/theme/light_theme.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({
@@ -48,6 +49,6 @@ class MyAppState extends State<MyApp> {
   }
 
   Route onGenerateRoute(RouteSettings? settings) {
-    return UiScreen.route;
+    return Todos.route;
   }
 }
