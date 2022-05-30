@@ -49,6 +49,6 @@ class MyAppState extends State<MyApp> {
   }
 
   Route onGenerateRoute(RouteSettings? settings) {
-    return Todos.route;
+    return TodosScreen.route;
   }
 }
