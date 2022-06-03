@@ -63,8 +63,8 @@
   "@todoList": {
     "type": "text"
   },
-   "enterTask": "Введіть завдання",
-  "@enterTask": {
+   "enterTitle": "Введіть завдання",
+  "@enterTitle": {
     "type": "text"
   }
 }

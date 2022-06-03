@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_theme/screens/todos_screens/todos_screen.dart';
+import 'package:flutter_theme/screens/todo_screens/todo_screen.dart';
+
 import 'package:provider/provider.dart';
 
 import 'package:flutter_gen/gen_l10n/localizations.dart';
@@ -49,6 +50,6 @@ class MyAppState extends State<MyApp> {
   }
 
   Route onGenerateRoute(RouteSettings? settings) {
-    return TodosScreen.route;
+    return TodoScreen.route;
   }
 }
