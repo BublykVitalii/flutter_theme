@@ -63,8 +63,20 @@
   "@todoList": {
     "type": "text"
   },
-   "enterTitle": "Введіть завдання",
+   "enterTitle": "Введіть cправу",
   "@enterTitle": {
+    "type": "text"
+  },
+   "editCase": "Редагувати cправу",
+  "@editCase": {
+    "type": "text"
+  },
+     "cancel": "Скасувати",
+  "@cancel": {
+    "type": "text"
+  },
+       "change": "Змінити",
+  "@change": {
     "type": "text"
   }
 }

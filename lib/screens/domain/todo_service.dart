@@ -16,6 +16,11 @@ class TodoService {
     return _todo;
   }
 
+  Future changeTodo(String note, String id) async {
+    _todo = await _todoRepository.changeTodo(note, id);
+    return _todo;
+  }
+
   Future deleteTodo(String id) async {
     _todo = await _todoRepository.deleteTodo(id);
     return _todo;

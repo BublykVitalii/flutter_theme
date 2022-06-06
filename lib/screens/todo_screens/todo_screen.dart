@@ -36,6 +36,7 @@ class _TodoScreenState extends State<TodoScreen> {
 
   TodoCubit get todoCubit => BlocProvider.of<TodoCubit>(context);
   String? note;
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<TodoCubit, TodoState>(
@@ -84,7 +85,20 @@ class _TodoScreenState extends State<TodoScreen> {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                showDialog<String>(
+                                  context: context,
+                                  builder: (BuildContext context) => ChangeTodo(
+                                    onPressed: (noteChanged) {
+                                      todoCubit.changeNote(
+                                        noteChanged,
+                                        todo[index].id,
+                                      );
+                                    },
+                                    noteChanged: todo[index].note,
+                                  ),
+                                );
+                              },
                               icon: const Icon(
                                 Icons.edit,
                               ),
@@ -140,7 +154,7 @@ class InputTitle extends StatelessWidget {
           Expanded(
             child: TextFormField(
               onSaved: onSaved,
-              validator: _validate,
+              validator: validate,
               decoration: InputDecoration(
                 hintText: context.localizations!.enterTitle,
               ),
@@ -156,10 +170,54 @@ class InputTitle extends StatelessWidget {
     );
   }
 
-  String? _validate(String? value) {
+  String? validate(String? value) {
     if (value == null || value.trim().isEmpty) {
       return 'something error';
     }
     return null;
+  }
+}
+
+class ChangeTodo extends StatelessWidget {
+  ChangeTodo({
+    Key? key,
+    required this.onPressed,
+    required this.noteChanged,
+  }) : super(key: key);
+
+  final ValueChanged<String> onPressed;
+  String noteChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: Center(
+        child: Text(context.localizations!.editCase),
+      ),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          TextFormField(
+            initialValue: noteChanged,
+            onChanged: (text) {
+              noteChanged = text;
+            },
+          ),
+        ],
+      ),
+      actions: <Widget>[
+        TextButton(
+          child: Text(context.localizations!.cancel),
+          onPressed: () => Navigator.pop(context),
+        ),
+        TextButton(
+          child: Text(context.localizations!.change),
+          onPressed: () {
+            onPressed(noteChanged);
+            Navigator.pop(context);
+          },
+        ),
+      ],
+    );
   }
 }

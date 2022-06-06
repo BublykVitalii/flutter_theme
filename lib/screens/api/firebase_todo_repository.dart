@@ -37,6 +37,18 @@ class FirebaseTodoRepository implements TodoRepository {
   }
 
   @override
+  Future changeTodo(String note, String id) async {
+    try {
+      await todoCollection.doc(id).update({'note': note});
+    } on DioError catch (error) {
+      if (error.response == null) {
+        throw const TodoExceptions();
+      }
+      rethrow;
+    }
+  }
+
+  @override
   Future updateTodo(String id) async {
     await todoCollection.doc(id).update({"complete": true});
   }

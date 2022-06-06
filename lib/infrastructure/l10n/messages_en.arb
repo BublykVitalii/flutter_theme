@@ -63,8 +63,20 @@
   "@todoList": {
     "type": "text"
   },
-   "enterTitle": "Enter title",
+   "enterTitle": "Enter todo",
   "@enterTitle": {
+    "type": "text"
+  },
+  "editCase": "Edit Case",
+  "@editCase": {
+    "type": "text"
+  },
+   "cancel": "Cancel",
+  "@cancel": {
+    "type": "text"
+  },
+     "change": "Change",
+  "@change": {
     "type": "text"
   }
 }
