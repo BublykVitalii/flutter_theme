@@ -49,8 +49,8 @@ class FirebaseTodoRepository implements TodoRepository {
   }
 
   @override
-  Future updateTodo(String id) async {
-    await todoCollection.doc(id).update({"complete": true});
+  Future updateTodo(String id, bool complete) async {
+    await todoCollection.doc(id).update({"complete": complete});
   }
 
   @override

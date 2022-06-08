@@ -73,4 +73,21 @@ class TodoCubit extends Cubit<TodoState> {
       ));
     }
   }
+
+  void updateTodo(String id, bool complete) async {
+    try {
+      emit(state.copyWith(status: TodoStatus.loading));
+      await todoService.updateTodo(id, complete);
+      final list = await todoService.fromFirestore();
+      emit(state.copyWith(
+        status: TodoStatus.success,
+        listTitle: list,
+      ));
+    } on TodoExceptions catch (error) {
+      emit(state.copyWith(
+        status: TodoStatus.error,
+        errorMessage: error.toString(),
+      ));
+    }
+  }
 }

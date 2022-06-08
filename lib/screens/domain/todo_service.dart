@@ -26,8 +26,11 @@ class TodoService {
     return _todo;
   }
 
-  Future updateTodo(String id) async {
-    _todo = await _todoRepository.updateTodo(id);
+  Future updateTodo(String id, bool complete) async {
+    _todo = await _todoRepository.updateTodo(
+      id,
+      complete,
+    );
     return _todo;
   }
 

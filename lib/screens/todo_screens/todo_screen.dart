@@ -36,7 +36,7 @@ class _TodoScreenState extends State<TodoScreen> {
 
   TodoCubit get todoCubit => BlocProvider.of<TodoCubit>(context);
   String? note;
-
+  bool isChecked = false;
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<TodoCubit, TodoState>(
@@ -80,7 +80,14 @@ class _TodoScreenState extends State<TodoScreen> {
                     itemCount: state.listTitle?.length ?? 0,
                     itemBuilder: (BuildContext context, int index) {
                       List<Todo> todo = state.listTitle ?? [];
+                      bool isComplete = todo[index].complete;
                       return ListTile(
+                        leading: Checkbox(
+                          value: isComplete,
+                          onChanged: (bool? value) {
+                            todoCubit.updateTodo(todo[index].id, !isComplete);
+                          },
+                        ),
                         trailing: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
@@ -178,6 +185,7 @@ class InputTitle extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class ChangeTodo extends StatelessWidget {
   ChangeTodo({
     Key? key,
