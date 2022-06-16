@@ -94,7 +94,8 @@ ThemeData getDarkTheme(BuildContext context) {
     iconTheme: const IconThemeData(color: AppColors.green),
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
-        primary: Colors.white,
+        backgroundColor: AppColors.green,
+        primary: Colors.black,
         padding: textButtonScaledPadding,
       ).copyWith(
         side: MaterialStateProperty.resolveWith(_getOutlinedColor),

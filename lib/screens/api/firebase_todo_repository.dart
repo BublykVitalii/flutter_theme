@@ -63,6 +63,7 @@ class FirebaseTodoRepository implements TodoRepository {
             e.id,
             complete: e.data()["complete"],
             note: e.data()['note'],
+            isMain: e.data()[''],
           );
         }).toList();
       });

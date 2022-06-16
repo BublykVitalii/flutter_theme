@@ -25,6 +25,7 @@ class TodoDTO {
       id,
       note: note,
       complete: complete,
+      isMain: true,
     );
   }
 
@@ -34,6 +35,7 @@ class TodoDTO {
       todo.id,
       complete: todo.complete,
       note: todo.note,
+      isMain: true,
     );
   }
 

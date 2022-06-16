@@ -93,7 +93,8 @@ ThemeData getLightTheme(BuildContext context) {
     iconTheme: const IconThemeData(color: Colors.black),
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
-        primary: AppColors.black,
+        backgroundColor: AppColors.black,
+        primary: AppColors.green,
         padding: textButtonScaledPadding,
       ).copyWith(
         side: MaterialStateProperty.resolveWith(_getOutlinedColor),

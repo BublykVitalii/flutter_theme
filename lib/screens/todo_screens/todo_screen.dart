@@ -7,7 +7,7 @@ import 'package:flutter_theme/screens/todo_screens/cubit/todo_cubit.dart';
 import 'package:flutter_theme/utils/localization_extensions.dart';
 
 class TodoScreen extends StatefulWidget {
-  static const _routeName = '/todo-list-screen';
+  static const _routeName = '/todo-screen';
 
   static PageRoute<TodoScreen> get route {
     return MaterialPageRoute(
@@ -37,13 +37,14 @@ class _TodoScreenState extends State<TodoScreen> {
   TodoCubit get todoCubit => BlocProvider.of<TodoCubit>(context);
   String? note;
   bool isChecked = false;
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<TodoCubit, TodoState>(
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
-            title: Text(context.localizations!.todoList),
+            title: Text(context.localizations!.todo),
             actions: [
               PopupMenuButton<ThemeMode>(
                 itemBuilder: (context) => [
