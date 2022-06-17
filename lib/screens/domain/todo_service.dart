@@ -11,6 +11,7 @@ class TodoService {
   Todo? _todo;
   Todo? get todo => _todo;
 
+
   Future addNewTodo(String note) async {
     _todo = await _todoRepository.addNewTodo(note);
     return _todo;

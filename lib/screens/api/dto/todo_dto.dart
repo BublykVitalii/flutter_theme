@@ -8,24 +8,26 @@ part 'todo_dto.g.dart';
 class TodoDTO {
   final bool complete;
   final String id;
+  final String userIdToken;
   final String note;
-  final String title;
+  final String? title;
   final List<TodoDTO> todos;
   const TodoDTO(
-    this.title,
-    this.id,
-    this.note,
     this.complete,
+    this.id,
+    this.userIdToken,
+    this.note,
+    this.title,
     this.todos,
   );
 
   Todo toTodo() {
     return Todo(
-      title,
+      title ?? '',
       id,
-      note: note,
+      userIdToken,
       complete: complete,
-      isMain: true,
+      note: note,
     );
   }
 
@@ -33,9 +35,9 @@ class TodoDTO {
     return Todo(
       todo.title,
       todo.id,
+      todo.userIdToken,
       complete: todo.complete,
       note: todo.note,
-      isMain: true,
     );
   }
 
@@ -50,10 +52,11 @@ class TodoDTO {
 
   static TodoDTO fromSnapshot(DocumentSnapshot<Map<String, dynamic>> doc) {
     return TodoDTO(
-      doc.id,
-      doc.data()!['title'],
-      doc.data()!['note'],
       doc.data()!['complete'],
+      doc.id,
+      doc.data()!['userIdToken'],
+      doc.data()!['note'],
+      doc.data()!['title'],
       doc.data()!['todos'],
     );
   }
@@ -61,7 +64,7 @@ class TodoDTO {
   Map<String, Object> toDocument() {
     return {
       'complete': complete,
-      'title': title,
+      'title': title ?? '',
       'note': note,
     };
   }

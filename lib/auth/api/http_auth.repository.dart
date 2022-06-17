@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
@@ -7,13 +8,11 @@ import 'package:flutter_theme/utils/store_interaction.dart';
 
 @Singleton(as: AuthRepository)
 class HttpAuthRepository implements AuthRepository {
-  HttpAuthRepository(
-    this._preference,
-  );
+  HttpAuthRepository(this._preference);
 
   final authTodo = FirebaseAuth.instance;
   final StoreInteraction _preference;
-
+  final todoCollection = FirebaseFirestore.instance;
   @override
   Future<void> createAccount(String email, String password) async {
     try {
@@ -23,6 +22,7 @@ class HttpAuthRepository implements AuthRepository {
       );
       final token = credential.user!.uid;
       await _preference.setToken(token);
+      todoCollection.collection(token);
     } on FirebaseAuthException catch (error) {
       if (error.code == 'weak-password') {
         throw AssertionError('The password provided is too weak.');
@@ -71,6 +71,7 @@ class HttpAuthRepository implements AuthRepository {
     );
     final idToken = googleUser?.id;
     await _preference.setToken(idToken ?? '');
+    todoCollection.collection(idToken ?? '');
     await FirebaseAuth.instance.signInWithCredential(credential);
   }
 

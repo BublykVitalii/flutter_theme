@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flutter_theme/application.dart';
+import 'package:flutter_theme/auth/domain/auth_service.dart';
+import 'package:flutter_theme/auth/screen/auth_screen.dart';
 import 'package:flutter_theme/screens/domain/todo.dart';
 import 'package:flutter_theme/screens/todo_screens/cubit/todo_cubit.dart';
 import 'package:flutter_theme/utils/localization_extensions.dart';
+import 'package:get_it/get_it.dart';
 
 class TodoScreen extends StatefulWidget {
   static const _routeName = '/todo-screen';
@@ -28,6 +31,7 @@ class TodoScreen extends StatefulWidget {
 }
 
 class _TodoScreenState extends State<TodoScreen> {
+  AuthService get authService => GetIt.instance.get<AuthService>();
   @override
   void initState() {
     todoCubit.fromFirestore();
@@ -121,10 +125,18 @@ class _TodoScreenState extends State<TodoScreen> {
                             ),
                           ],
                         ),
-                        title: Text(todo[index].title),
+                        title: Text(todo[index].note),
                       );
                     },
                   ),
+                ),
+                FloatingActionButton(
+                  heroTag: null,
+                  onPressed: () {
+                    authService.logOut();
+                    Navigator.pushReplacement(context, AuthScreen.route);
+                  },
+                  child: const Icon(Icons.logout_outlined),
                 ),
               ],
             ),
@@ -138,7 +150,7 @@ class _TodoScreenState extends State<TodoScreen> {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
       _formKey.currentState!.reset();
-      todoCubit.addTitle(note!);
+      todoCubit.addNote(note!);
       todoCubit.fromFirestore();
     }
   }

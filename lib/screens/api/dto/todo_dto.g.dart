@@ -7,10 +7,11 @@ part of 'todo_dto.dart';
 // **************************************************************************
 
 TodoDTO _$TodoDTOFromJson(Map<String, dynamic> json) => TodoDTO(
-      json['title'] as String,
-      json['id'] as String,
-      json['note'] as String,
       json['complete'] as bool,
+      json['id'] as String,
+      json['userIdToken'] as String,
+      json['note'] as String,
+      json['title'] as String?,
       (json['todos'] as List<dynamic>)
           .map((e) => TodoDTO.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -19,6 +20,7 @@ TodoDTO _$TodoDTOFromJson(Map<String, dynamic> json) => TodoDTO(
 Map<String, dynamic> _$TodoDTOToJson(TodoDTO instance) => <String, dynamic>{
       'complete': instance.complete,
       'id': instance.id,
+      'userIdToken': instance.userIdToken,
       'note': instance.note,
       'title': instance.title,
       'todos': instance.todos,

@@ -11,7 +11,7 @@ class TodoCubit extends Cubit<TodoState> {
   TodoCubit() : super(const TodoState());
   TodoService get todoService => GetIt.instance.get<TodoService>();
 
-  void addTitle(String note) async {
+  void addNote(String note) async {
     try {
       emit(state.copyWith(status: TodoStatus.loading));
       await todoService.addNewTodo(note);

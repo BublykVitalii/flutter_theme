@@ -1,31 +1,31 @@
 class Todo {
   final bool complete;
   final String id;
+  final String userIdToken;
   final String note;
   final String title;
-  final bool isMain;
 
   const Todo(
     this.title,
-    this.id, {
+    this.id,
+    this.userIdToken, {
     this.complete = false,
     this.note = '',
-    required this.isMain,
   });
 
   Todo copyWith({
     bool? complete,
     String? id,
+    String? userIdToken,
     String? note,
     String? title,
-    bool? isMain,
   }) {
     return Todo(
       title ?? this.title,
       id ?? this.id,
+      userIdToken ?? this.userIdToken,
       complete: complete ?? this.complete,
       note: note ?? this.note,
-      isMain: isMain ?? this.isMain,
     );
   }
 
@@ -35,7 +35,7 @@ class Todo {
       title.hashCode ^
       note.hashCode ^
       id.hashCode ^
-      isMain.hashCode;
+      userIdToken.hashCode;
 
   @override
   bool operator ==(Object other) =>
@@ -46,11 +46,11 @@ class Todo {
           title == other.title &&
           note == other.note &&
           id == other.id &&
-          isMain == other.isMain;
+          userIdToken == other.userIdToken;
 
   @override
   String toString() {
-    return 'Todo { complete: $complete, title: $title, note: $note, id: $id ,isMain: $isMain,}';
+    return 'Todo { complete: $complete, title: $title, note: $note, id: $id ,userIdToken: $userIdToken,}';
   }
 
   List<Object?> get props => [
@@ -58,6 +58,6 @@ class Todo {
         id,
         note,
         title,
-        isMain,
+        userIdToken,
       ];
 }

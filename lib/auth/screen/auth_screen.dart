@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_theme/application.dart';
 import 'package:flutter_theme/auth/screen/cubit/auth_cubit.dart';
 import 'package:flutter_theme/infrastructure/theme/app_images.dart';
-import 'package:flutter_theme/screens/todo_list/todo_list_screen.dart';
+import 'package:flutter_theme/screens/todo_screens/todo_screen.dart';
 import 'package:flutter_theme/utils/localization_extensions.dart';
 
 class AuthScreen extends StatefulWidget {
@@ -48,7 +48,7 @@ class _AuthScreenState extends State<AuthScreen> with TickerProviderStateMixin {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state.status == AuthStatus.success) {
-          Navigator.pushReplacement(context, TodoList.route);
+          Navigator.pushReplacement(context, TodoScreen.route);
         }
       },
       builder: (context, state) {
